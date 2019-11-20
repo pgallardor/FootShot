@@ -1,0 +1,922 @@
+html, body{
+    height:100%;
+    margin: 0;
+}
+
+body {
+	font-family: "Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+	font-size: 100%;
+	background-color: #FAFAFA;
+	color: #323232;
+	z-index: -100;
+}
+
+body::-webkit-scrollbar {
+	width: 7px;
+	height: 5px;
+	background-color: #DEDEDE;
+}
+
+body::-webkit-scrollbar-thumb {
+	height: 2px;
+	background-color: #767676;
+}
+
+.fondo {
+	height: 100vh;
+	width: 50vw;
+	background-color: #0778B0;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+a {
+	text-decoration: none;
+	color: #323232;
+}
+
+a:hover {
+	text-decoration: none;
+	color: #323232;
+}
+
+.marca {
+	max-width: 50%;
+	min-width: 30px;
+}
+
+.btn {
+	border: none;
+}
+
+.btn-light {
+	background-color: white;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
+}
+
+.btn:active,
+.btn:focus {
+	box-shadow: none !important;
+}
+
+.cuadro-login {
+	background-color: white;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
+	border-radius: 8px;
+}
+
+.img-footshot {
+	width: 40%;
+}
+
+.error-color {
+	color: #a01c28;
+}
+
+/*  Navegador menú Administrador  */
+.navbar {
+	background-color: #0778B0;
+}
+
+.navbar .container,
+.navbar .container .row {
+	width: 100%;
+}
+
+.navbar .container .row .create-user,
+.navbar .container .row .name-user,
+.contenido .navusuarios .btn-navuser,
+.contenido .navfichas .btn-fichas {
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.navbar .container .row .create-user {
+	color: #0778B0;
+}
+
+.navbar .container .row .name-user {
+	color: white;
+}
+
+.navbar .container .row .name-user:hover {
+	color: #EEEEEE;
+}
+
+/*  Fin  */
+
+/*  Contenido  */
+.titulo-home .row .col h1,
+.titulo-home .row .col-4 h1,
+.titulo-home .row .col-8 h1 {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+/*  BARRA MENU  */
+.titulo-home .row button.btn-menu {
+	color: #0778B0;
+	background-color: white;
+	border: 1px solid #0778B0;
+	border-radius: 4px;
+}
+
+.titulo-home .row button.btn-menu:hover {
+	color: white;
+	background-color: #0778B0;
+}
+
+/*  Fin  */
+
+/* Menú contenido */
+.navusuarios,
+.contenido .navfichas {
+	width: 100%;
+	list-style: none;
+}
+
+.contenido .navusuarios .btn-navuser,
+.contenido .navfichas .btn-fichas {
+	background-color: #0778B0;
+	border-radius: 6px 6px 0 0;
+	padding: 15px 30px 14px 22px;
+	border-left: 8px solid #0778B0;
+	color: white;
+	transition: 0.2s;
+}
+
+/*  Botones desabilitados  */
+#btn-fichas.deshabilitado,
+#btn-fotos.deshabilitado,
+#btn-datos.deshabilitado {
+	pointer-events: none;
+	opacity: .65;
+}
+
+.contenido .navfichas .btn-fichas {
+	border-radius: 6px;
+	padding: 20px 35px 20px 27px;
+	border-left: 8px solid #0778B0;
+}
+
+.contenido .navfichas .btn-fichas.btn-crear-paciente {
+	background-color: #FFC107;
+	color: #323232;
+	border-left: 8px solid #FFC107;
+}
+
+.contenido .navfichas .btn-fichas.btn-crear-paciente:hover {
+	color: #323232;
+}
+
+.contenido .navusuarios .btn-navuser:hover,
+.contenido .navfichas .btn-fichas:hover {
+	text-decoration: none;
+	background-color: white;
+	color: #0778B0;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
+}
+
+.contenido .navusuarios .open .activo,
+.contenido .navfichas .btn-fichas.activo {
+	background-color: white;
+	color: #0778B0;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
+	z-index: 1;
+}
+
+#btn-con-ficha.activo,
+#btn-sin-ficha.activo,
+#btn-paciente-completado.activo {
+	color: #323232;
+}
+
+@media (max-width: 502px) {
+	.contenido .navusuarios .btn-navuser {
+		padding: 15px 8px 14px 4px;
+		border-left: 4px solid #0778B0;
+		font-size: 11px;
+		border-radius: 6px 6px 0 0;
+	}
+}
+
+/*  Fin  */
+
+/*  Contenido  */
+#contenido-visita,
+#contenido-admin,
+#contenido-tablas {
+	left: 0;
+}
+
+.contenido .navusuarios .open .contenedor-lista {
+	background-color: white;
+	width: 100%;
+	border-radius: 0 6px 6px 6px;
+	margin-top: 12px;	
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
+}
+
+#contenido-pacientes-completados #contenido-solo-foto {
+	border-radius: 6px 6px 6px 6px;	
+}
+
+#contenido-sin-dato,
+#contenido-sin-foto,
+#contenido-solo-dato,
+#contenido-fotos,
+#contenido-datos,
+#contenido-img-temperatura {
+	left: 0;
+}
+
+.contenido .navusuarios .open .contenedor-lista.lista-complemento {
+	right: 0;
+	width: 32%;
+	padding-left: 15px;
+	padding-right: 15px;
+	min-height: 251px;
+}
+
+.contenido .navusuarios .open .contenedor-lista.lista-complemento.complemento-dos {
+	top: 320px;
+}
+
+.contenido .navusuarios .open .contenedor-lista.lista-complemento .scroll {
+	max-height: 168px;
+	overflow: auto;
+}
+
+.contenido .navusuarios .open .contenedor-lista.lista-complemento .scroll::-webkit-scrollbar {
+	width: 5px;
+	height: 5px;
+	background-color: #DEDEDE;
+	border-radius: 25px;
+}
+
+.contenido .navusuarios .open .contenedor-lista.lista-complemento .scroll::-webkit-scrollbar-thumb {
+	height: 2px;
+	background-color: #767676;
+	border-radius: 25px;
+
+}
+
+.contenido .navusuarios .open .lista-complemento .titulos-listado {
+	background-color: #0778B0;
+	border-radius: 0 8px 0 0;
+	color: white;
+}
+
+.contenido .navusuarios .open .lista-complemento .sombra-titulos {
+	box-shadow: none;
+}
+
+.contenido .navusuarios .open .titulo-lista-complemento {
+	padding-top: 10px;
+	z-index: 1;
+}
+
+.contenido .navusuarios .open .titulo-lista-complemento.titulo-complemento-dos {
+	top: 295px;
+}
+
+.titulo-lista-complemento {
+	left: 68%;
+	top: 0;
+}
+
+.contenido .navusuarios .open .parche,
+.contenido .navusuarios .open .parche-visita,
+.contenido .navusuarios .open .parche-admin {
+	width: 66.65%;
+	height: 20px;
+	background-color: white;
+	top: 35px;
+	border-radius: 0 6px 0 0;
+	z-index: 2;
+	left: 0;
+}
+
+.contenido .navusuarios .open .parche.parche-ver-usuario,
+.contenido .navusuarios .open .parche-admin.parche-ver-usuario,
+.contenido .navusuarios .open .parche-visita.parche-ver-usuario {
+	left: 16.7%;
+}
+
+.contenido .navusuarios .open .contenedor-lista .titulos-listado h2,
+.ver-usuario form .row .titulo-input,
+.modal-content p,
+#guardarCambiosModal .modal-content p,
+.card.crear-paciente .titulo-input,
+legend,
+.card.crear-paciente label,
+.crear-paciente.borderAzul .significado h3,
+.login form .titulo-input,
+.login .olvidar,
+.ver-usuario div.position-relative .row h2 {
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.contenido .navusuarios .open .sombra-titulos {
+	width: 100%;
+	height: 1px;
+	background-color: transparent;
+	box-shadow: 0 5px 1px rgba(0, 0, 0, 0.16);
+}
+
+/*  Fin  */
+
+/*  Listado user  */
+.contenido .navusuarios .open .titulos-contenido {
+	background-color: white;
+	border-radius: 4px;
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.16);
+	transition: 0.2s;
+}
+
+#contenido-complemento-ficha .titulos-contenido,
+#contenido-complemento-ficha-dato .titulos-contenido,
+#usuario-visita .titulos-contenido {
+	height: 48px;
+}
+
+.contenido .navusuarios .open .titulos-contenido:hover {
+	border-left: 6px solid #0778B0;
+}
+
+.contenido .navusuarios .open .titulos-contenido h2 {
+	font-size: 12px;
+	overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+}
+
+#guardarCambiosModal .modal-content .btn-primary {
+	background-color: #0778B0;
+}
+
+.contenido .navusuarios .open .titulos-contenido .btn-danger,
+.ver-usuario form .row .btn-danger,
+.modal-content .btn-danger,
+.lista-complemento .titulos-contenido .btn-success,
+.titulos-contenido .btn-success {
+	font-size: 12px;
+	font-weight: bold;
+	color: #BE1622;
+	border: 1px solid #BE1622;
+	background-color: white;
+	cursor: pointer;
+}
+
+#contenido-complemento-foto .btn-actualizar,
+#contenido-complemento-foto-sinFotos .btn-actualizar {
+	padding: 2.5px 10px;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.lista-complemento .titulos-contenido .btn-success,
+.titulos-contenido .btn-success {
+	color: #28A745;
+	border: 1px solid #28A745;	
+}
+
+.lista-complemento .titulos-contenido .btn-success:hover,
+.titulos-contenido .btn-success:hover {
+	color: white;
+	background-color: #28A745;
+}
+
+.contenido .navusuarios .open .titulos-contenido .btn-danger:hover,
+.ver-usuario form .row .btn-danger:hover,
+.modal-content .btn-danger:hover {
+	color: white;
+	background-color: #BE1622;
+}
+
+@media (max-width: 400px) {
+	.contenido .navusuarios .open .titulos-contenido h2 {
+		font-size: 10px;
+	}
+}
+
+/*  Fin  */
+
+/*  Ver usuario  */
+
+/*  Titulo  */
+.titulo-home .btn-atras {
+	background-color: #0778B0;
+	padding: 0 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
+	border-radius: 8px;
+	color: white;
+	transition: 0.2s;
+}
+
+.titulo-home .btn-atras.amarillo {
+	background-color: #FFC107;
+}
+
+.titulo-home .btn-atras:hover {
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.16);
+	color: #0778B0;
+	background-color: white;
+}
+
+.titulo-home .btn-atras.amarillo:hover {
+	color: #FFC107;
+}
+/*  Fin  */
+
+/*  Contenido  */
+.ver-usuario form .row .input-texto,
+.card.crear-paciente .input-texto,
+.login form .input-texto {
+	font-size: 12px;
+	font-weight: 500;
+	color: #323232;
+	border-radius: 8px;
+	border: none;
+	background-color: #E1F5FF;
+}
+
+.card.crear-paciente.borderAmarillo .input-texto {
+	background-color: #FFF4D2;
+}
+
+.ver-usuario form .row .contenido-input {
+	font-size: 12px;
+	font-weight: 500;
+	color: #323232;
+	vertical-align: middle;
+}
+
+.ver-usuario form .row .btn-primary,
+.ver-usuario form .row .btn-dark,
+.ver-usuario form .row .btn-danger,
+.modal-content .btn-danger,
+.modal-content .btn-secondary,
+.modal-content .btn-success,
+#guardarCambiosModal .modal-content .btn-primary,
+#guardarCambiosModal .modal-content .btn-secondary,
+#formulario .btn-accion .btn-primary,
+#formulario .btn-accion .btn-secondary,
+.guardar-cambio,
+.login form .btn-primary,
+.login form .btn-secondary,
+#modal-actualizar .btn-warning,
+.ver-usuario div.position-relative .row .btn-cancelar {
+	font-size: 12px;
+	font-weight: bold;
+	border-radius: 6px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
+}
+
+#modal-actualizar .btn-warning {
+	padding: 5px 28%;
+}
+
+.login form .btn-primary {
+	background-color: #0778B0;
+}
+
+.login form .btn-secondary {
+	background-color: #323232;
+}
+
+.ver-usuario form .row .btn-primary {
+	background-color: #0778B0;
+	padding: 10px 36%;
+}
+
+.ver-usuario form .row .btn-dark {
+	background-color: #323232;
+	padding: 10px 41%;
+}
+
+.ver-usuario form .row .btn-cancelar,
+.ver-usuario div.position-relative .row .btn-cancelar {
+	padding: 10px 35%;
+}
+
+.ver-usuario form .row .btn-danger {
+	padding: 10px 35%;
+	background-color: transparent;
+}
+
+.ver-usuario form .row .btn-primary:hover,
+#formulario .btn-accion .btn-primary:hover,
+#guardarCambiosModal .modal-content .btn-primary:hover,
+.login form .btn-primary:hover {
+	background-color: white;
+	color: #0778B0;
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.16);
+}
+
+.ver-usuario form .row .btn-dark:hover,
+.modal-content .btn-secondary:hover,
+#formulario .btn-accion .btn-secondary:hover,
+#guardarCambiosModal .modal-content .btn-secondary:hover,
+.login form .btn-secondary:hover,
+.ver-usuario div.position-relative .row .btn-cancelar:hover {
+	background-color: white;
+	color: #323232;
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.16);
+}
+
+#modal-actualizar .btn-warning:hover {
+	background-color: white;
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.16);
+}
+
+.ver-usuario form .row img {
+	width: 100%;
+}
+
+.ver-usuario form .imagen {
+	top: 0;
+	right: 0;
+	z-index: -1;
+}
+
+.ver-usuario div.position-relative .row img {
+	width: 100%;
+}
+
+.ver-usuario div.position-relative .imagen {
+	top: 0;
+	right: 0;
+	z-index: -1;
+}
+
+@media (max-width: 575.5px) {
+	.ver-usuario form .row .btn-primary,
+	.ver-usuario form .row .btn-dark,
+	.ver-usuario form .row .btn-danger,
+	.ver-usuario form .row .btn-cancelar {
+		padding-left: 0;
+		padding-right: 0;
+		width: 100%; 
+	}
+
+}
+
+/*  Fin  */
+
+/*  Modal eliminar  */
+
+.modal-content,
+#guardarCambiosModal .modal-content {
+	border: none;
+	border-radius: 8px;
+}
+
+.modal-content p span,
+#guardarCambiosModal .modal-content p span {
+	font-weight: 500;
+	font-style: italic;
+}
+
+.modal-content .btn-danger,
+#guardarCambiosModal .modal-content .btn-primary {
+	padding: 5px 30%;
+}
+
+.modal-content .btn-secondary,
+#guardarCambiosModal .modal-content .btn-secondary {
+	background-color: #323232;
+	padding: 5px 28%;
+}
+
+.modal-content .btn-success{
+	padding: 5px 28%;
+}
+
+/*  Fin  */
+
+/*  Botones complementos  */
+#btn-complemento-dato:hover,
+#btn-complemento-foto:hover,
+#btn-complemento-dato-sinDatos:hover,
+#btn-complemento-ficha:hover {
+	background-color: #0778B0;
+	color: white;
+	box-shadow: none;
+}
+
+#btn-complemento-dato-sinDatos {
+	top: 0;
+}
+
+
+/*  Crear paciente  */
+.card.crear-paciente {
+	border: 0;
+	border-radius: 8px;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.16);
+}
+
+.card.crear-paciente.borderAmarillo {
+	border-top: 8px solid #FFC107;
+}
+
+.card.crear-paciente.borderAzul {
+	border-top: 8px solid #0778B0;	
+}
+
+.card-title {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.borderAmarillo .card-title {
+	color: #FFC107;
+}
+
+.borderAzul .card-title {
+	color: #0778B0;
+}
+
+.sugerencia {
+	font-size: 10px;
+	font-style: italic;
+}
+
+.card-subtitulo {
+	font-size: 12px;
+}
+
+.card-subtitulo span {
+	font-weight: bold;
+}
+
+.crear-paciente .btn-group {
+	width: 100%;
+}
+
+.crear-paciente .btn-secondary {
+	background-color: #83CDF1;
+	color: white;
+	border: 2px solid #83CDF1;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.crear-paciente .btn-secondary:hover {
+	border: 2px solid #0778B0;
+	background-color: white;
+	color: #0778B0;
+}
+
+.crear-paciente .btn-secondary.activo {
+	background-color: #0778B0 !important;
+	border: 2px solid #0778B0 !important;
+	color: white !important;
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.25) !important;
+}
+
+#rango .card-body,
+#rangoIzq .card-body {
+	border: 0;
+}
+
+.crear-paciente.borderAzul .significado h3 {
+	color: #6C6C6C; 
+}
+
+.crear-paciente.borderAzul .significado h3 span,
+.crear-paciente.borderAzul .significado .titulo {
+	color: #212529;
+}
+
+.crear-paciente.borderAzul .significado .separador {
+	width: 100%;
+	height: 1px;
+	background-color: #707070;
+}
+
+#formulario .btn-accion .btn-primary {
+	width: 100%;
+	background-color: #0778B0;	
+}
+
+.guardar-cambio {
+	background-color: #FFC107 !important;
+	color: #323232;
+}
+
+.guardar-cambio:hover {
+	background-color: white;
+	color: #323232;
+}
+
+#formulario .btn-accion .btn-secondary {
+	width: 100%;
+	background-color: #323232;
+}
+
+.btn-group-toggle .btn-secondary {
+	cursor: pointer;
+}
+
+.btn-secondary:not(:disabled):not(.disabled).active {
+	background-color: #0778B0;
+	border: 2px solid #0778B0;
+	box-shadow: none;
+}
+
+/*  Ver usuario  */
+/*  Botones  */
+.btn-ficha,
+.btn-usuario-foto,
+.btn-usuario-dato {
+	left: 190px;
+}
+
+@media (max-width: 1199.9px) {
+	.btn-ficha,
+	.btn-usuario-foto,
+	.btn-usuario-dato {
+		left: 160px;
+	}
+}
+
+@media (max-width: 991.9px) {
+	.btn-ficha,
+	.btn-usuario-foto,
+	.btn-usuario-dato {
+		left: 0px;
+	}
+
+	.contenido .navusuarios .open .parche.parche-ver-usuario,
+	.contenido .navusuarios .open .parche-visita.parche-ver-usuario,
+	.contenido .navusuarios .open .parche-admin.parche-ver-usuario {
+		left: 0;
+	}
+}
+
+/*  Tablas  */
+.titulo-tabla {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.tablas .table-striped tbody {
+	font-size: 14px;
+	border: 1px solid #707070;
+	border-radius: 5px;
+}
+
+.tablas .table-striped tbody tr th {
+	border: 0;
+}
+
+/*  USUARIO COMUN MEDIAS  */
+@media (max-width: 991.9px) {
+	#btn-complemento-foto,
+	#contenido-complemento-foto,
+	#btn-complemento-dato,
+	#contenido-complemento-dato,
+	#btn-complemento-dato-sinDatos,
+	#contenido-complemento-dato-sinDatos,
+	#btn-complemento-foto-sinFotos,
+	#contenido-complemento-foto-sinFotos,
+	#btn-complemento-ficha,
+	#contenido-complemento-ficha,
+	#btn-complemento-ficha-dato,
+	#contenido-complemento-ficha-dato {
+		display: none !important;
+	}
+}
+
+@media (max-width: 767.9px) {
+	.menu-principal {
+		display: none;
+	}
+
+	.menu-desplegable {
+		margin-left: 10px;
+		padding: 5px 15px;
+		border-radius: 5px;
+	}
+
+	.menu-desplegable:hover {
+		background-color: #ebebeb;
+	}
+
+	.menu-desplegable.diferente:hover {
+		background-color: transparent;
+	}
+
+	#btn-con-ficha,
+	#btn-sin-ficha,
+	#btn-paciente-completado,
+	#crear-paciente {
+		color: inherit;
+		padding: 0px;
+		background-color: inherit;
+		font-size: 14px;
+		border-radius: 0px;
+		border: 0px;
+		padding-left: 10px;
+		border-left: 4px solid transparent;
+	}
+
+	#crear-paciente {
+		background-color: #FFC107;
+		padding: 5px 10px 5px 10px;
+		border-radius: 5px;
+		border: 1px solid transparent;
+	}
+
+	#btn-con-ficha:hover,
+	#btn-sin-ficha:hover,
+	#btn-paciente-completado:hover,
+	#crear-paciente:hover {
+		box-shadow: none;
+		background-color: transparent;
+	}
+
+	#crear-paciente:hover {
+		border: 1px solid #FFC107;
+	}
+
+	#btn-con-ficha.activo,
+	#btn-sin-ficha.activo,
+	#btn-paciente-completado.activo {
+		box-shadow: none;
+		color: #0778B0;
+		border-left: 4px solid #0778B0;
+	}
+
+	.barra-division {
+		border-bottom: 1px solid rgba(0, 0, 0, 0.16)
+	}
+}
+
+/*  Listado de IMAGENES  */
+#contenido-img-temperatura .card-fotos,
+#modalImagenesPie .card-fotos,
+#modalImagenesPie .card {
+	border: 0;
+}
+
+#contenido-img-temperatura .imagenes img,
+#modalImagenesPie .imagenes img {
+	max-width: 100%;
+}
+
+#contenido-img-temperatura .imagenes .img-pie-izquierdo {
+	border-radius: 5px 0 0 5px;
+}
+
+#contenido-img-temperatura .imagenes .img-pie-derecho {
+	border-radius: 0 5px 5px 0;
+}
+
+.estilo-de-lista {
+	list-style: none;
+}
+
+#contenido-img-temperatura .botonImagenesModal {
+	background-color: transparent;
+	border: 0;
+	border: 1px solid rgba(0, 0, 0, 0.16);
+	border-radius: 5px;
+}
+
+#contenido-img-temperatura .card-text {
+	font-weight: bold;
+	font-size: 12px;
+}
+
+#contenido-img-temperatura .titulo-tabla {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.16);
+}
+
+.desabilitar-input {
+	pointer-events: none;
+}
+
+form .text-login {
+	font-size: 12px;
+}
+
+/* Círculo cargando */
+.loader {
+  border: 8px solid #f3f3f3; /* Light grey */
+  border-top: 8px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
