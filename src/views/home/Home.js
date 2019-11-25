@@ -58,7 +58,7 @@ class Home extends Component{
 
                                     <div class="row titulos-contenido ml-1 mr-1 mb-2 align-items-center">
                                         <div class="col-sm-1 col-2 pr-0">
-                                            <a href="#">
+                                            <a href="/patient">
                                                 <h2 class="pl-2 mb-0">
                                                     894
                                                 </h2>
