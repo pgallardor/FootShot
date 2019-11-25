@@ -3,6 +3,7 @@ import './style.css';
 
 class Navbar extends Component{
     render(){
+        //this one changes with the user's role
         let divClass = "col-lg-2 col-md-3 col-sm-4 col-5 offset-lg-7 offset-md-5 offset-sm-6 offset-5 text-right";
         return(
             <nav class="navbar text-center pt-3 pb-3">
@@ -10,14 +11,14 @@ class Navbar extends Component{
                     <div class="row">
                         <div class="col-lg-3 col-md-4 d-md-inline-block d-none text-left">
                             <a href="{% url 'users:home' %}">
-                            <img class="marca" src="{% static 'img/marca-footshot.png' %}"/>
+                                <img class="marca" src="/img/marca-footshot.png"/>
                             </a>
-                    </div>
-                    <div class="col-2 d-inline-block d-md-none text-left">
-                        <a href="{% url 'users:home' %}">
-                            <img class="marca" src="{% static 'img/isotipo-blanco.png' %}"/>
-                        </a>
-                    </div>
+                        </div>
+                        <div class="col-2 d-inline-block d-md-none text-left">
+                            <a href="{% url 'users:home' %}">
+                                <img class="marca" src="/img/isotipo-blanco.png"/>
+                            </a>
+                        </div>
                     {   false &&
                         <div class="col-lg-3 col-md-4 col-5 offset-lg-4 offset-md-1 text-right">
                             <a class="btn btn-light btn-lg create-user pl-sm-5 pl-2 pr-sm-5 pr-2" href="{% url 'users:create' %}">
@@ -44,3 +45,5 @@ class Navbar extends Component{
         );
     }
 }
+
+export default Navbar;
