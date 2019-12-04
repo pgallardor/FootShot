@@ -19,7 +19,7 @@ class Home extends Component{
 
     /*
     componentWillMount(){
-        axios.get('/api/wombat/Patient/all', {auth: {
+        axios.get('http://localhost:8080/127.0.0.1:52773/api/wombat/Patient/all', {auth: {
             username: "Pedro",
             password: "dsaqwe123"
         }})
@@ -37,7 +37,8 @@ class Home extends Component{
         let list = [];
         for (let patient of this.state.patients){
             list = [...list,
-             <PatientItem id={patient.id} name={patient.name}/>
+             <PatientItem id={patient.id} name={patient.fullName} 
+                            dob={patient.birthDate} gender={patient.gender}/>
             ]
         }
 
