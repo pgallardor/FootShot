@@ -8,8 +8,16 @@ class Home extends Component{
     constructor(props){
         super(props)
         this.patientList = this.patientList.bind(this)
+
+        this.state = {
+            patients: [
+                { id: 1, name: "Pedro Pablo Gallardo Robinson" },
+                { id: 2, name: "Patient Number One" }
+            ]
+        }
     }
 
+    /*
     componentWillMount(){
         axios.get('/api/wombat/Patient/all', {auth: {
             username: "Pedro",
@@ -21,9 +29,11 @@ class Home extends Component{
             this.setState({ patients: data });
         })
     }
+    */
 
     patientList(){
         if (!this.state) return;
+        console.log(this.state)
         let list = [];
         for (let patient of this.state.patients){
             list = [...list,
