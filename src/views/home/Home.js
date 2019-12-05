@@ -2,24 +2,23 @@ import React, { Component } from 'react';
 import {Helmet} from 'react-helmet';
 import '../style.css';
 import {ButtonMenu, PatientItem} from '../pages'; 
+import ObsHome from './ObsHome';
 import axios from 'axios';
 
 class Home extends Component{
     constructor(props){
-        super(props)
-        this.patientList = this.patientList.bind(this)
+        super(props);
+        this.patientList = this.patientList.bind(this);
+        this.changeSection = this.changeSection.bind(this);
 
         this.state = {
-            patients: [
-                { id: 1, name: "Pedro Pablo Gallardo Robinson" },
-                { id: 2, name: "Patient Number One" }
-            ]
+            section: "Pacientes",
+            patients: []
         }
     }
-
-    /*
-    componentWillMount(){
-        axios.get('http://localhost:8080/127.0.0.1:52773/api/wombat/Patient/all', {auth: {
+    
+    componentDidMount(){
+        axios.get('http://192.168.0.29:8080/127.0.0.1:52773/api/wombat/Patient/all', {auth: {
             username: "Pedro",
             password: "dsaqwe123"
         }})
@@ -29,11 +28,17 @@ class Home extends Component{
             this.setState({ patients: data });
         })
     }
-    */
+
+    changeSection(sectionName){
+        this.setState({
+            section: sectionName
+        })
+    }
+    
 
     patientList(){
         if (!this.state) return;
-        console.log(this.state)
+        console.log(this.state);
         let list = [];
         for (let patient of this.state.patients){
             list = [...list,
@@ -64,15 +69,16 @@ class Home extends Component{
                     </div>
                 </div>
                 <div id="usuario-visita" class="container contenido">
-                    <ButtonMenu buttons={["Pacientes", "Exámenes"]}/>
+                    <ButtonMenu buttons={["Pacientes", "Exámenes"]} change={this.changeSection}/>
 
                     <div id="contenido-con-ficha" class="row">
                         <ul class="navusuarios position-relative pl-0">
                             <li id="solo-ficha" class="d-inline-block open">
                                 <div class="parche position-absolute"></div>
-                                <a id="btn-solo-ficha" class="btn-navuser position-relative mr-1 activo" href="#" onclick="conFichaSoloFicha()">
-                                    Pacientes
+                                <a id="btn-solo-ficha" class="btn-navuser position-relative mr-1 activo">
+                                    { this.state.section }
                                 </a>
+                                { this.state.section === "Pacientes" &&
                                 <div id="contenido-solo-ficha" class="col-12 position-absolute contenedor-lista mb-4">
                                     <div class="row titulos-listado pt-4 pl-4 pb-2">
                                         <div class="col-sm-1 col-2 pr-0">
@@ -97,6 +103,10 @@ class Home extends Component{
                                         this.patientList()
                                     }
                                 </div>
+                                }
+                                { this.state.section === "Exámenes" &&
+                                    <ObsHome/>
+                                }
                             </li>
                         </ul>
                     </div>

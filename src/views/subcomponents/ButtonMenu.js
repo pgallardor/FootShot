@@ -5,6 +5,12 @@ class ButtonMenu extends Component {
     constructor(props){
         super(props);
         this.tray = this.tray.bind(this);
+        this.click = this.click.bind(this);
+    }
+
+    click(e){
+        let sectionName = e.target.id;
+        this.props.change(sectionName)
     }
 
     tray() {
@@ -12,7 +18,9 @@ class ButtonMenu extends Component {
         for (let item of this.props.buttons){
             buttonList = [...buttonList, 
                 <li class="d-md-inline-block menu-desplegable">
-                    <a id="btn-con-ficha" class="btn-fichas" href="#" >{item}</a>
+                    <a id={item} class="btn-fichas" href="javascript:void(null)" onClick={this.click}>
+                        {item}
+                    </a>
                 </li>
             ];
         }

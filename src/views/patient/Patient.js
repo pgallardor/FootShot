@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import PatientData from './PatientData';
 import PatientObs from './PatientObs';
 import '../style.css';
+import axios from 'axios';
 
 class Patient extends Component{
     constructor(props){
@@ -13,6 +14,20 @@ class Patient extends Component{
             dataButton: "activo",
             obsButton: ""
         }
+    }
+
+    componentDidMount(){
+        let pid = this.props.match.params.id;
+        axios.get('http://192.168.0.29:8080/127.0.0.1:52773/api/wombat/Patient/' + pid, { auth: {
+            username: "Pedro",
+            password: "dsaqwe123"
+        }})
+        .then( response => {
+            let { data } = response;
+            let patient = {pid, ...data}
+            this.setState({ patient })
+        })
+
     }
 
     clickHandle(e){
@@ -31,6 +46,7 @@ class Patient extends Component{
     }
 
     render(){
+        if (!this.state || !this.state.patient) return(<h4>Loading...</h4>)
         return(
             <div>
                 <Helmet>
@@ -44,7 +60,7 @@ class Patient extends Component{
                             </a>
                         </div>
                         <div class="col-4 text-left pl-md-0 pl-sm-2 pl-4">
-                            <h1>Paciente Paciente1</h1>
+                            <h1>Paciente {" #" + this.state.patient.id}</h1>
                         </div>
                     </div>
                     <br/>
@@ -59,7 +75,7 @@ class Patient extends Component{
                                     </a>
                                     {
                                         this.state.dataButton !== "" &&
-                                        <PatientData/>
+                                        <PatientData patient={this.state.patient}/>
                                     }
                                 </li>
                                 <li id="paciente-datos" class="d-inline-block open">
