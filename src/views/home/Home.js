@@ -78,6 +78,7 @@ class Home extends Component{
                                 <a id="btn-solo-ficha" class="btn-navuser position-relative mr-1 activo">
                                     { this.state.section }
                                 </a>
+                                <input type="text" placeholder="Buscar por nombre"/>
                                 { this.state.section === "Pacientes" &&
                                 <div id="contenido-solo-ficha" class="col-12 position-absolute contenedor-lista mb-4">
                                     <div class="row titulos-listado pt-4 pl-4 pb-2">
@@ -95,6 +96,10 @@ class Home extends Component{
                                         </div>
                                         <div class="col-sm-1 col-2 pl-0 pr-0">
                                             <h2> Datos </h2>
+                                        </div>
+                                        <div class="col-3 text-right">
+                                            <button class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#eliminarModal">Inscribir</button>
+                                            &nbsp;
                                         </div>
                                     </div>
                                     <div class="sombra-titulos mb-3"></div>

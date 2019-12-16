@@ -1,8 +1,44 @@
 import React, { Component } from 'react';
 import '../style.css';
+import ObsItem from '../subcomponents/ObsItem'
 import axios from 'axios';
 
 class ObsHome extends Component{
+
+    constructor(props){
+        super(props);
+        this.state = {
+            observations: []
+        }
+
+        this.list = this.list.bind(this);
+
+    }
+
+    componentDidMount(){
+        axios.get('http://192.168.0.29:8080/127.0.0.1:52773/api/wombat/Observation/all', {
+            auth: {
+                username: 'Pedro',
+                password: 'dsaqwe123'
+            }
+        })
+        .then( response => {
+            let { data } = response;
+            this.setState({ observations: data })
+        });
+    }
+
+    list(){
+        let arr = [];
+        for (let obs of this.state.observations){
+            arr = [...arr,
+                    <ObsItem id={obs.id} patientName={obs.patientName} 
+                                interpretation={obs.interpretation} device={obs.device} />]
+        }
+
+        return <div>{arr}</div>
+    }
+
     render(){
         return(
             <div id="contenido-solo-ficha" class="col-12 position-absolute contenedor-lista mb-4">
@@ -24,47 +60,8 @@ class ObsHome extends Component{
                     </div>
                 </div>
                 <div class="sombra-titulos mb-3"></div>
-
-                <div class="row titulos-contenido ml-1 mr-1 mb-2 align-items-center">
-                    <div class="col-sm-1 col-2 pr-0">
-                        <a href="/patient">
-                            <h2 class="pl-2 mb-0">
-                                1
-                            </h2>
-                        </a>
-                    </div>
-                    <div class="d-sm-inline-block d-none col-3 pr-0">
-                        <a href="#">
-                            <h2 class="pl-2 mb-0">
-                                Sujeto  
-                            </h2>
-                        </a>  
-                    </div>
-                    <div class="col-2 pr-0">
-                        <a href="#">
-                            <h2 class="pl-2 mb-0">
-                                Footshot
-                            </h2>
-                        </a>  
-                    </div>
-                    <div class="col-sm-2 d-sm-inline-block col-3 pr-0">
-                        <a href="#">
-                            <h2 class="pl-2 mb-0">
-                                01-01-2019
-                            </h2>
-                        </a>  
-                    </div>
-                    <div class="col-sm-1 col-3 pr-0">
-                        <a href="#">
-                            <h2 class="pl-2 mb-0">
-                            TODO MALO
-                            </h2>
-                        </a>  
-                    </div>
-                    <div class="col-3 text-right">
-                        <button class="btn btn-danger pl-md-3 pr-md-3 pl-sm-2 pr-sm-2 pl-1 pr-1 mt-2 mb-2" data-toggle="modal" data-target="#eliminarModal">Eliminar</button>
-                    </div>
-                </div>
+                {this.list()}
+                
             </div>
         )
     }
