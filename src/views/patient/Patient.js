@@ -55,7 +55,7 @@ class Patient extends Component{
                 <div class="container titulo-home pt-5 pb-4">
                     <div class="row">
                         <div class="col-1 offset-sm-2 pl-0">
-                            <a class="btn btn-atras amarillo" href="javascript:history.back()">
+                            <a class="btn btn-atras amarillo" href="/">
                                 <i class="fas fa-angle-left"></i>
                             </a>
                         </div>

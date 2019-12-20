@@ -1,0 +1,30 @@
+.left-image{
+    text-align: left;
+    background-color: inherit;
+    /*padding-right: 1%;*/
+}
+
+.right-image{
+    text-align: right;
+    background-color: inherit;
+}
+
+.left-image img,
+.right-image img {
+    max-width: 100%;
+    max-height: 600px;
+    height: auto;
+    background-color: inherit;
+}
+
+.container.centered{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #a6ddff;   
+}
+
+.container .images{
+    border: 10px solid #a6ddff;
+    border-radius: 10px;
+}

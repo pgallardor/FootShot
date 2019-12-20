@@ -98,7 +98,8 @@ class Home extends Component{
                                             <h2> Datos </h2>
                                         </div>
                                         <div class="col-3 text-right">
-                                            <button class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#eliminarModal">Inscribir</button>
+                                            <a class="btn btn-outline-success btn-sm" 
+                                                href="/inscribir">Inscribir</a>
                                             &nbsp;
                                         </div>
                                     </div>

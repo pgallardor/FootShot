@@ -7,6 +7,69 @@ import DatePicker from 'react-datepicker';
 import axios from 'axios';
 
 class PatientSign extends Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            rut: '',
+            fullName: '',
+            dob: new Date(),
+            gender: 'male'
+        }
+
+        this.signPatient = this.signPatient.bind(this);
+        this._handleChange = this._handleChange.bind(this);
+        this._handleDateChange = this._handleDateChange.bind(this);
+
+    }
+
+    signPatient(){
+        //axios POST
+        let form = this.state,
+            date = form.dob;
+        form['dob'] = `${date.getFullYear()}/${date.getMonth()+1}/${date.getDate()}`;
+        console.log(form);
+    }
+
+    _handleChange(e){
+        if (e.target.id === 'rut'){
+            let clean = [].map.call(e.target.value, x => {
+                if ((x < '0' || x > '9') && x !== 'K' && x !== 'k') return null;
+                return x;
+            }).join('');
+            const len = clean.length;
+
+            if (len > 1){
+                let verifier = (clean[len - 1] === 'k') ? 'K' : clean[len - 1];
+                let parsed = [clean[len - 2], '-', verifier], group = 1 ;
+                for (let i = len - 3; i >= 0; i--){
+                    if (group == 0) 
+                        parsed = ['.', ...parsed];
+                    parsed = [clean[i], ...parsed];
+                    group++;
+                    if (group == 3) group = 0;
+                }
+                clean = parsed.join('');
+            }
+
+            this.setState({
+                [e.target.id]: clean
+            })
+            return;
+        }
+
+        this.setState({
+            [e.target.id]: e.target.value
+        })
+    }
+
+    _handleDateChange(date, formatted){
+        console.log(date.toString());
+        this.setState({
+            dob: date
+        });
+    }
+
     render(){
         return(
             <div>
@@ -30,21 +93,24 @@ class PatientSign extends Component {
                     <Form>
                         <FormGroup>
                             <Form.Label>Nombre paciente</Form.Label>
-                            <Form.Control type="text" placeholder="Nombre completo" id="fullName"/>
+                            <Form.Control type="text" placeholder="Nombre completo" id="fullName"
+                                             onChange={this._handleChange}/>
                         </FormGroup>
                         <FormGroup>
                             <Form.Label>RUT</Form.Label>
-                            <Form.Control type="text" placeholder="Ingrese RUT" id="rut"/>
+                            <Form.Control type="text" placeholder="Ingrese RUT" id="rut"
+                                            value={this.state.rut} onChange={this._handleChange}/>
                         </FormGroup>
                         <FormGroup>
                             <Form.Label>Fecha de nacimiento</Form.Label>
                             <DatePicker id="dob" className="form-control" 
-                                        value={new Date().toISOString()} onChange={ (a, b) => {  return; } } />
+                                        selected={this.state.dob} onChange={ this._handleDateChange }
+                                        dateFormat="yyyy/MM/dd" />
                         </FormGroup>
                         <Form.Row>
                             <Form.Group as={Col}>
                                 <Form.Label>Género</Form.Label>
-                                <Form.Control as="select" id="gender">
+                                <Form.Control as="select" id="gender" onChange={this._handleChange}>
                                     <option value="male">Hombre</option>
                                     <option value="female">Mujer</option>
                                     <option value="other">Otro</option>
@@ -52,7 +118,7 @@ class PatientSign extends Component {
                                 </Form.Control>
                             </Form.Group>
                         </Form.Row>
-                        <Button variant="success"> Inscribir </Button>
+                        <Button variant="success" onClick={this.signPatient}> Inscribir </Button>
                     </Form>
                 </div>
             </div>
