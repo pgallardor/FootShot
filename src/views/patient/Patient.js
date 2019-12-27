@@ -18,12 +18,11 @@ class Patient extends Component{
 
     componentDidMount(){
         let pid = this.props.match.params.id;
-        axios.get('http://192.168.0.29:8080/127.0.0.1:52773/api/wombat/Patient/' + pid, { auth: {
-            username: "Pedro",
-            password: "dsaqwe123"
-        }})
+        console.log(pid);
+        axios.get('/Patient/' + pid)
         .then( response => {
             let { data } = response;
+            console.log(data);
             let patient = {pid, ...data}
             this.setState({ patient })
         })

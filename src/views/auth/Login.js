@@ -1,8 +1,50 @@
 import React, { Component } from 'react';
 import {Helmet} from 'react-helmet'
 import '../style.css';
+import axios from 'axios';
 
 class Login extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            username: '',
+            password: '',
+            error: false
+        }
+
+        this._handleChange = this._handleChange.bind(this);
+        this.login = this.login.bind(this);
+    }
+
+    componentDidMount(){
+        if (this.props.user.username !== 'guest'){
+            this.props.history.push('/');
+        }
+    }
+
+    _handleChange(e){
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
+    login(e){
+        e.preventDefault();
+        let { username, password } = this.state;
+        console.log(this.state)
+        axios.post('/auth/signin', { username, password }, { withCredentials: true })
+            .then( response => {
+                this.props.login({ username });
+                this.props.history.push('/');
+            })
+            .catch(err => {
+                console.log(err)
+                this.setState({
+                    error: true
+                })
+            })
+    }
+
     render(){
         return (
             <div>
@@ -22,10 +64,11 @@ class Login extends Component{
                                 </div>
                             </div>
                             
-                            <form class="pl-3 pr-3" method="POST">
+                            <form class="pl-3 pr-3" onSubmit={this.login} method="POST">
                                 <div class="form-group">
                                     <label class="titulo-input" for="exampleInputUsername1">Username</label>
-                                    <input type="text" class="form-control input-texto" id="exampleInputUsername1" aria-describedby="usernameHelp" placeholder="Escribe tu username" name="username" required/>
+                                    <input type="text" class="form-control input-texto" id="exampleInputUsername1" onChange={this._handleChange}
+                                        aria-describedby="usernameHelp" placeholder="Escribe tu username" name="username" required/>
                                     {
                                         false &&
                                         <div class="sugerencia mb-0 error-color">
@@ -35,16 +78,17 @@ class Login extends Component{
                                 </div>
                                 <div class="form-group">
                                     <label class="titulo-input" for="exampleInputPassword1">Contraseña</label>
-                                    <input type="password" class="form-control input-texto" id="exampleInputPassword1" placeholder="Password" name="password" required/>
+                                    <input type="password" class="form-control input-texto" onChange={this._handleChange} 
+                                        id="exampleInputPassword1" placeholder="Password" name="password" required/>
                                 {   false &&
                                     <div class="sugerencia mb-0 error-color">
                                         <b>Error</b>
                                     </div>
                                 }
                                 </div>
-                                {   false &&
+                                {   this.state.error &&
                                     <p class="olvidar alert alert-danger">
-                                        Tu correo y contraseña no coinciden. Por favor inténtalo nuevamente.
+                                        Usuario o contraseña incorrectos.
                                     </p>
                                 }
                                 <button type="submit" class="btn btn-primary btn-lg btn-block">Iniciar sesión</button>

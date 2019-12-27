@@ -18,10 +18,7 @@ class Home extends Component{
     }
     
     componentDidMount(){
-        axios.get('http://192.168.0.29:8080/127.0.0.1:52773/api/wombat/Patient/all', {auth: {
-            username: "Pedro",
-            password: "dsaqwe123"
-        }})
+        axios.get('/Patient/all')
         .then( response => {
             let data = response.data;
             console.log(response);
@@ -99,7 +96,7 @@ class Home extends Component{
                                         </div>
                                         <div class="col-3 text-right">
                                             <a class="btn btn-outline-success btn-sm" 
-                                                href="/inscribir">Inscribir</a>
+                                                href="/sign-patient">Inscribir</a>
                                             &nbsp;
                                         </div>
                                     </div>

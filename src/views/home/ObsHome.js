@@ -16,7 +16,7 @@ class ObsHome extends Component{
     }
 
     componentDidMount(){
-        axios.get('http://192.168.0.29:8080/127.0.0.1:52773/api/wombat/Observation/all', {
+        axios.get('/Observation/all', {
             auth: {
                 username: 'Pedro',
                 password: 'dsaqwe123'
@@ -32,7 +32,7 @@ class ObsHome extends Component{
         let arr = [];
         for (let obs of this.state.observations){
             arr = [...arr,
-                    <ObsItem id={obs.id} patientName={obs.patientName} 
+                    <ObsItem id={obs.id} patientName={obs.patientName} date={obs.issued}
                                 interpretation={obs.interpretation} device={obs.device} />]
         }
 

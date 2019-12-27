@@ -29,7 +29,7 @@ class ObsItem extends Component{
                 <div class="col-sm-2 d-sm-inline-block col-3 pr-0">
                     <a href="#">
                         <h2 class="pl-2 mb-0">
-                            11-12-2019
+                            {this.props.date}
                         </h2>
                     </a>  
                 </div>

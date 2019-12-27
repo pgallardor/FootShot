@@ -25,9 +25,12 @@ class PatientSign extends Component {
 
     signPatient(){
         //axios POST
-        let form = this.state,
-            date = form.dob;
-        form['dob'] = `${date.getFullYear()}/${date.getMonth()+1}/${date.getDate()}`;
+        let form = this.state;
+        
+        axios.post('/Patient/signWithRut', form)
+            .then( response => {
+                alert(response.data.msg);
+            })
         console.log(form);
     }
 
@@ -66,7 +69,7 @@ class PatientSign extends Component {
     _handleDateChange(date, formatted){
         console.log(date.toString());
         this.setState({
-            dob: date
+            birthDate: date
         });
     }
 
@@ -103,7 +106,7 @@ class PatientSign extends Component {
                         </FormGroup>
                         <FormGroup>
                             <Form.Label>Fecha de nacimiento</Form.Label>
-                            <DatePicker id="dob" className="form-control" 
+                            <DatePicker id="birthDate" className="form-control" 
                                         selected={this.state.dob} onChange={ this._handleDateChange }
                                         dateFormat="yyyy/MM/dd" />
                         </FormGroup>
