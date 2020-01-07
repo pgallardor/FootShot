@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, BrowserRouter as Router, Route, Redirect, withRouter } from 'react-router-dom';
-import { Home, Login, Navbar, Patient, PatientSign, Observation } from './views/pages';
+import { Home, Login, Navbar, Patient, PatientSign, Observation, CardObservation } from './views/pages';
 import './views/style.css';
 import axios from 'axios';
 
@@ -63,6 +63,7 @@ class App extends Component {
           <Switch>
               <PrivateRoute exact path="/" component={Home}/>
               <Route path="/login" component={ props => <Login {...props} login={this.login} user={this.state.user}/> }/> 
+              <Route path="/wat" component={CardObservation} />
               <PrivateRoute path="/patient/:id" component={Patient}/>
               <PrivateRoute path="/sign-patient" component={PatientSign} />
               <PrivateRoute path="/observation/:oid" component={Observation} />

@@ -6,5 +6,6 @@ import PatientItem from './subcomponents/PatientItem';
 import Patient from './patient/Patient';
 import PatientSign from './patient/PatientSign';
 import Observation from './observation/Observation';
+import CardObservation from './observation/CardObservation';
 
-export { Home, Login, Navbar, ButtonMenu, Patient, PatientItem, PatientSign, Observation };
+export { Home, Login, Navbar, ButtonMenu, Patient, PatientItem, PatientSign, Observation, CardObservation };

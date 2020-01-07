@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet';
 import axios from 'axios';
 import '../style.css';
 import '../newstyles.css';
+import FootObservation from './FootObservation';
 
 class Observation extends Component{
     
@@ -20,9 +21,10 @@ class Observation extends Component{
     componentDidMount(){
         let oid = this.props.match.params.oid;
         axios.get('/Observation/' + oid).then( response => {
-            let { data } = response;
+            let { url, device, interpretation, issued, note } = response.data;
             this.setState({
-                url: data.url
+                url,
+                device, interpretation, issued, note
             })
         })
     }
@@ -38,18 +40,10 @@ class Observation extends Component{
                     <title>Footshot - Observación</title>
                 </Helmet>
                 <div class="container titulo-home pt-5 pb-4 contenido">
-                    <ButtonMenu buttons={["Visible", "Infrarrojo", "Análisis"]} change={null} />
-                    <div class="row container centered images">    
-                        <div class="left-image">
-                            <img src={ this.state.url } alt=""/>
-                        </div>
-                        <div class="right-image">
-                            <img src="https://ih1.redbubble.net/image.437583177.0368/mp,840x830,matte,f8f8f8,t-pad,750x1000,f8f8f8.jpg"/>
-                        </div>
-                    </div>
-                    <div class="container obs-data">
-
-                    </div>
+                {
+                    this.state.device === 'Footshot' &&
+                    <FootObservation {...this.state} />
+                }
                 </div>
             </div>
         )

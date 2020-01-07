@@ -28,3 +28,23 @@
     border: 10px solid #a6ddff;
     border-radius: 10px;
 }
+
+.container.centered-data{
+    margin-top: 1%;
+    margin-left: -1.2%;
+    background-color: #0778B0;
+    border: 10px solid #0778B0;
+    border-radius: 10px;
+}
+
+.obs-data-text {
+    justify-content: left;
+    align-items: left;
+    display: inline;
+    color: white;
+}
+
+.obs-data-text h3 {
+    font-weight: bolder;
+    margin-bottom: 2%;
+}
