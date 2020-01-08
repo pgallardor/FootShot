@@ -21,9 +21,9 @@ class Observation extends Component{
     componentDidMount(){
         let oid = this.props.match.params.oid;
         axios.get('/Observation/' + oid).then( response => {
-            let { url, device, interpretation, issued, note } = response.data;
+            let { oid, urls, device, interpretation, issued, note } = response.data;
             this.setState({
-                url,
+                urls, oid,
                 device, interpretation, issued, note
             })
         })

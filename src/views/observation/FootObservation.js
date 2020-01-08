@@ -17,12 +17,12 @@ class FootObservation extends Component{
         return(
             <div>
                 <ButtonMenu buttons={["Visible", "Infrarrojo", "Análisis"]} change={null} />
-                <div class="row container centered images">    
+                <div class="row container centered images">
                     <div class="left-image">
-                        <img src={ this.props.url } alt=""/>
+                        <img src={ this.props.urls[0] } alt=""/>
                     </div>
                     <div class="right-image">
-                        <img src="https://ih1.redbubble.net/image.437583177.0368/mp,840x830,matte,f8f8f8,t-pad,750x1000,f8f8f8.jpg"/>
+                        <img src={ this.props.urls[1] } alt=""/>
                     </div>
                 </div>
                 <div class="container centered-data">

@@ -13,7 +13,7 @@ class PatientSign extends Component {
         this.state = {
             rut: '',
             fullName: '',
-            dob: new Date(),
+            birthDate: new Date(),
             gender: 'male'
         }
 
@@ -107,7 +107,7 @@ class PatientSign extends Component {
                         <FormGroup>
                             <Form.Label>Fecha de nacimiento</Form.Label>
                             <DatePicker id="birthDate" className="form-control" 
-                                        selected={this.state.dob} onChange={ this._handleDateChange }
+                                        selected={this.state.birthDate} onChange={ this._handleDateChange }
                                         dateFormat="yyyy/MM/dd" />
                         </FormGroup>
                         <Form.Row>
