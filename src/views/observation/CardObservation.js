@@ -15,18 +15,12 @@ class CardObservation extends Component{
 
         this.loadFile = this.loadFile.bind(this);
         this.plot = this.plot.bind(this);
+        this.loadFile();
     }
 
-    componentDidMount(){
-        axios.get('/Image/test')
-            .then( response => {
-                let { url } = response.data;
-                this.loadFile(url);
-            })
-    }
-
-    loadFile(url){
-        axios.get(url)
+    loadFile(){
+        if (this.props.urls === "#") return;
+        axios.get(this.props.urls[0])
             .then( response => {
                 let { data } = response;
                 const axisY = data.split('\n').map( n => { return +n });
@@ -58,8 +52,18 @@ class CardObservation extends Component{
     render(){
         if (!this.state.x && !this.state.y) return <h3>Loading file...</h3>
         return(
-            <div className="container centered images">
-                { this.plot() }
+            <div>
+                <div className="container centered">
+                    { this.plot() }
+                </div>
+                <div class="container centered-data">
+                    <div class="obs-data-text">
+                        <h3>Datos del exámen</h3>
+                        <p>Interpretación: {this.props.interpretation}</p>
+                        <p>Realizado el: {this.props.issued}</p>
+                        <p><em>{this.props.note}</em></p>
+                    </div>
+                </div>
             </div>
         )
     }

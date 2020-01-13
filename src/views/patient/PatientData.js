@@ -50,7 +50,7 @@ class PatientData extends Component{
                         <h4>Opciones de contacto</h4>
                     </div>
                     <div class="col-sm-1">
-                        <Button variant="success" size="sm">Añadir</Button>
+                        <Button variant="success" size="sm" onClick={this.props.openContact}>Añadir</Button>
                     </div>
                 </div>
                 { this.contactList() }
@@ -60,7 +60,7 @@ class PatientData extends Component{
                         <h4>Identificadores</h4>
                     </div>
                     <div class="col-sm-1">
-                        <Button variant="success" size="sm">Añadir</Button>
+                        <Button variant="success" size="sm" onClick={this.props.openId}>Añadir</Button>
                     </div>
                 </div>
                 { this.idList() }

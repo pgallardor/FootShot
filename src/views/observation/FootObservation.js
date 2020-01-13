@@ -6,23 +6,38 @@ import ButtonMenu from '../subcomponents/ButtonMenu';
 class FootObservation extends Component{
     constructor(props){
         super(props);
+        this.state = {
+            display: "Visible",
+            offset: 0
+        }
         this.changeDisplay = this.changeDisplay.bind(this);
     }
 
-    changeDisplay(){
-        return;
+    changeDisplay(display){
+        let offset = 0;
+
+        if (display === "Análisis")
+            return;
+
+        if (display === "Infrarrojo")
+            offset = 2;
+        
+        this.setState({
+            display,
+            offset
+        })
     }
 
     render(){
         return(
             <div>
-                <ButtonMenu buttons={["Visible", "Infrarrojo", "Análisis"]} change={null} />
+                <ButtonMenu buttons={["Visible", "Infrarrojo", "Análisis"]} change={this.changeDisplay} />
                 <div class="row container centered images">
                     <div class="left-image">
-                        <img src={ this.props.urls[0] } alt=""/>
+                        <img src={ this.props.urls[this.state.offset + 0] } alt=""/>
                     </div>
                     <div class="right-image">
-                        <img src={ this.props.urls[1] } alt=""/>
+                        <img src={ this.props.urls[this.state.offset + 1] } alt=""/>
                     </div>
                 </div>
                 <div class="container centered-data">

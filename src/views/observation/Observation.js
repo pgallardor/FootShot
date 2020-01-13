@@ -5,6 +5,7 @@ import axios from 'axios';
 import '../style.css';
 import '../newstyles.css';
 import FootObservation from './FootObservation';
+import CardObservation from './CardObservation';
 
 class Observation extends Component{
     
@@ -12,7 +13,7 @@ class Observation extends Component{
         super(props);
         this.state = {
             irView: false,
-            url: "#"
+            urls: "#"
         }
 
         this._toggleIrView = this._toggleIrView.bind(this);
@@ -34,6 +35,7 @@ class Observation extends Component{
     }
 
     render(){
+        if (this.state.urls === "#") return (<h3>Loading...</h3>)
         return(
             <div>
                 <Helmet>
@@ -41,8 +43,9 @@ class Observation extends Component{
                 </Helmet>
                 <div class="container titulo-home pt-5 pb-4 contenido">
                 {
-                    this.state.device === 'Footshot' &&
-                    <FootObservation {...this.state} />
+                    this.state.device === 'Footshot' ?
+                    <FootObservation {...this.state} /> :
+                    <CardObservation {...this.state} />
                 }
                 </div>
             </div>
