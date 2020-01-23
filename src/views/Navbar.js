@@ -29,34 +29,26 @@ class Navbar extends Component{
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-3 col-md-4 d-md-inline-block d-none text-left">
-                            <a href="/">
-                                <img class="marca" src="/img/marca-footshot.png"/>
+                            <a href="/">    
+                                <img class="marca" src="/img/Cardihealth-bar.png"/>
                             </a>
                         </div>
                         <div class="col-2 d-inline-block d-md-none text-left">
                             <a href="/">
-                                <img class="marca" src="/img/isotipo-blanco.png"/>
+                                <img class="marca" src="/img/Cardiahealth2.png"/>
                             </a>
                         </div>
-                    {   false &&
-                        <div class="col-lg-3 col-md-4 col-5 offset-lg-4 offset-md-1 text-right">
-                            <a class="btn btn-light btn-lg create-user pl-sm-5 pl-2 pr-sm-5 pr-2" href="{% url 'users:create' %}">
-                                Crear usuario
-                            </a>
-                        </div>
-                    }   
-                    
-                    <div class={divClass}>
-                        <div class="dropdown">
-                            <button class="btn dropdown-toggle name-user" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                {this.props.user.username}
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Editar usuario</a>
-                                <a class="dropdown-item" href="javascript:void(null)" onClick={this.logout}>Cerrar sesión</a>
+                        <div class={divClass}>
+                            <div class="dropdown">
+                                <button class="btn dropdown-toggle name-user" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {this.props.user.username}
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Editar usuario</a>
+                                    <a class="dropdown-item" href="javascript:void(null)" onClick={this.logout}>Cerrar sesión</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     </div>
                 </div>  
             </nav>

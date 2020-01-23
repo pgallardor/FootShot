@@ -7,5 +7,6 @@ import Patient from './patient/Patient';
 import PatientSign from './patient/PatientSign';
 import Observation from './observation/Observation';
 import CardObservation from './observation/CardObservation';
+import Admin from './admin/Admin';
 
-export { Home, Login, Navbar, ButtonMenu, Patient, PatientItem, PatientSign, Observation, CardObservation };
+export { Home, Login, Navbar, ButtonMenu, Patient, PatientItem, PatientSign, Observation, CardObservation, Admin };
