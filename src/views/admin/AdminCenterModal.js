@@ -26,7 +26,7 @@ class AdminCenterModal extends Component{
 
     load(){
         if (+this.props.userId === -1) return;
-        axios.get('/admin/organization/' + this.props.userId)
+        axios.get('/api/admin/organization/' + this.props.userId)
             .then( response => {
                 let { data } = response;
                 this.setState({
@@ -81,7 +81,7 @@ class AdminCenterModal extends Component{
             username: this.props.userId
         }
         console.log(body);
-        axios.post('/admin/signUserToOrganization', body)
+        axios.post('/api/admin/signUserToOrganization', body)
             .then(() => {
                 alert('Usuario inscrito a nuevo centro de salud')
             })
