@@ -25,7 +25,7 @@ class Admin extends Component{
         if (this.props.user.role.length == 1 || this.props.user.role[1] !== 'admin') {
             this.props.history.push("/");
         }
-        axios.get('/Organization/all').then( response => {
+        axios.get('/api/Organization/all').then( response => {
             let { data } = response;
 
             this.setState({

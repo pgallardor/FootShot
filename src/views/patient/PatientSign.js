@@ -26,7 +26,7 @@ class PatientSign extends Component {
     }
 
     componentDidMount(){
-        axios.get('/Organization/all')
+        axios.get('/api/Organization/all')
             .then( response => {
                 let { data } = response;
                 this.setState({
@@ -41,7 +41,7 @@ class PatientSign extends Component {
         let { rut, fullName, birthDate, gender, healthCenter } = this.state
         let form = { rut, fullName, birthDate, gender, healthCenter };
         
-        axios.post('/Patient/signWithRut', form)
+        axios.post('/api/Patient/signWithRut', form)
             .then( response => {
                 alert(response.data.msg);
             })

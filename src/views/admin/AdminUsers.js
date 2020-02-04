@@ -25,7 +25,7 @@ class AdminUsers extends Component{
     }
 
     componentDidMount(){
-        axios.get('/admin/userList').then( response => {
+        axios.get('/api/admin/userList').then( response => {
             let { data } = response;
             this.setState({ userList: data })
         })
@@ -42,7 +42,7 @@ class AdminUsers extends Component{
     }
 
     _makeAdmin(username){
-        axios.put('/admin/makeAdmin/' + username)
+        axios.put('/api/admin/makeAdmin/' + username)
             .then(() => {
                 alert(username + " is now an admin!")
             })
@@ -50,7 +50,7 @@ class AdminUsers extends Component{
 
     _submitNewUser(e){
         e.preventDefault();
-        axios.post('/auth/signup', this.state.userForm, { withCredentials: true })
+        axios.post('/api/auth/signup', this.state.userForm, { withCredentials: true })
             .then((user) => {
                 let { data } = user,
                     { userList } = this.state;

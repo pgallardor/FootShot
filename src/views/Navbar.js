@@ -8,6 +8,7 @@ class Navbar extends Component{
         super(props);
 
         this.logout = this.logout.bind(this);
+        this.toAdmin = this.toAdmin.bind(this);
     }
 
     toAdmin(){
@@ -15,7 +16,7 @@ class Navbar extends Component{
     }
 
     logout(){
-        axios.post('/auth/logout', {}, { withCredentials: true })
+        axios.post('/api/auth/logout', {}, { withCredentials: true })
             .then( response => {
                 this.props.logout();
                 this.props.history.push('/login');

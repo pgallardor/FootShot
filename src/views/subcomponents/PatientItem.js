@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import '../style.css';
 
 /*
@@ -16,35 +17,35 @@ class PatientItem extends Component{
         return(
             <div class="row titulos-contenido ml-1 mr-1 mb-2 align-items-center">
                 <div class="col-sm-1 col-2 pr-0">
-                    <a href={"/patient/" + this.props.id}>
+                    <Link to={"/patient/" + this.props.id}>
                         <h2 class="pl-2 mb-0">
                             { this.props.id }
                         </h2>
-                    </a>
+                    </Link>
                 </div>
                 <div class="d-sm-inline-block d-none col-3 pr-0">
-                    <a href={"/patient/" + this.props.id}>
+                    <Link to={"/patient/" + this.props.id}>
                         <h2 class="pl-2 mb-0">
                             { this.props.name }
                         </h2>
-                    </a>  
+                    </Link>  
                 </div>
                 <div class="col-3 pr-0">
-                    <a href={"/patient/" + this.props.id}>
+                    <Link to={"/patient/" + this.props.id}>
                         <h2 class="pl-2 mb-0">
                             { this.props.dob }
                         </h2>
-                    </a>  
+                    </Link>  
                 </div>
                 <div class="col-sm-1 col-2 pr-0">
-                    <a href={"/patient/" + this.props.id}>
+                    <Link to={"/patient/" + this.props.id}>
                         <h2 class="pl-2 mb-0">
                             <i className={iconClass}></i>
                         </h2>
-                    </a>  
+                    </Link>  
                 </div>
                 <div class="col-sm-1 col-2 pr-0">
-                    <a href="#">
+                    <a href={null}>
                         <h2 class="pl-2 mb-0">
                         -
                         </h2>

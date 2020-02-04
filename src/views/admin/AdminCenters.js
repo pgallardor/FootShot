@@ -27,7 +27,7 @@ class AdminCenters extends Component{
     _submitNewCenter(e){
         e.preventDefault();
         let { centerForm } = this.state;
-        axios.post('/admin/addOrganization', centerForm, { withCredentials: true })
+        axios.post('/api/admin/addOrganization', centerForm, { withCredentials: true })
             .then( response => {
                 let { data } = response;
                 this.props.pushCenter(data);
@@ -58,7 +58,7 @@ class AdminCenters extends Component{
     }
 
     deleteCenter(id){
-        axios.delete('/admin/organization/' + id).then(() => {
+        axios.delete('/api/admin/organization/' + id).then(() => {
             alert("Deletos");
         })
     }

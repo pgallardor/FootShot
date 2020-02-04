@@ -16,7 +16,7 @@ class ObsHome extends Component{
     }
 
     componentDidMount(){
-        axios.get('/Observation/all', {
+        axios.get('/api/Observation/all', {
             auth: {
                 username: 'Pedro',
                 password: 'dsaqwe123'
@@ -33,7 +33,7 @@ class ObsHome extends Component{
         for (let obs of this.state.observations){
             arr = [...arr,
                     <ObsItem id={obs.id} patientName={obs.patientName} date={obs.issued}
-                                interpretation={obs.interpretation} device={obs.device} />]
+                                interpretation={obs.interpretation} device={obs.deviceType} />]
         }
 
         return <div>{arr}</div>

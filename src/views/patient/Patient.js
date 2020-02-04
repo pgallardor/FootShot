@@ -28,7 +28,7 @@ class Patient extends Component{
     componentDidMount(){
         let pid = this.props.match.params.id;
         console.log(pid);
-        axios.get('/Patient/' + pid)
+        axios.get('/api/Patient/' + pid)
         .then( response => {
             let { data } = response;
             console.log(data);

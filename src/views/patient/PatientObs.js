@@ -60,7 +60,13 @@ class PatientObs extends Component{
             <div id="contenido-datos" class="col-lg-8 col-12 offset-lg-2 position-absolute contenedor-lista">
                 <div class="row titulos-listado pt-4 pl-4 pb-1">
                 </div>
-                { this.obsListRender() }
+                { 
+                    this.props.obsList.length > 0 ?
+                    this.obsListRender() :
+                    <div class="container col-9">
+                        <h4>Este paciente no tiene exámenes registrados</h4>
+                    </div>
+                }
             </div>
         )
     }

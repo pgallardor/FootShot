@@ -32,9 +32,10 @@ class Login extends Component{
         e.preventDefault();
         let { username, password } = this.state;
         console.log(this.state)
-        axios.post('/auth/signin', { username, password }, { withCredentials: true })
+        axios.post('/api/auth/signin', { username, password }, { withCredentials: true })
             .then( response => {
-                this.props.login({ username });
+                let { username, role } = response.data;
+                this.props.login({ username, role });
                 this.props.history.push('/');
             })
             .catch(err => {

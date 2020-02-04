@@ -53,7 +53,12 @@ class PatientData extends Component{
                         <Button variant="success" size="sm" onClick={this.props.openContact}>Añadir</Button>
                     </div>
                 </div>
-                { this.contactList() }
+                {   this.props.patient.contact.length > 0 ?
+                    this.contactList() :
+                    <div class="container">
+                        <p>No se han registrado puntos de contacto</p>                  
+                    </div>
+                }
                 <hr/>
                 <div class="row container">
                     <div class="col-sm-10">

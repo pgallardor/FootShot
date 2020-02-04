@@ -18,7 +18,7 @@ class Home extends Component{
     }
     
     componentDidMount(){
-        axios.get('/Patient/all')
+        axios.get('/api/Patient/all')
         .then( response => {
             let data = response.data;
             console.log(response);

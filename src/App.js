@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   componentDidMount(){
-    axios.get('/auth/amilogged', { withCredentials: true })
+    axios.get('/api/auth/amilogged', { withCredentials: true })
     .then(response => {
         let user_data = response.data;
         console.log(user_data);

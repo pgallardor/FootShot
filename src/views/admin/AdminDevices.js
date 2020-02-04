@@ -21,7 +21,7 @@ class AdminDevice extends Component{
     }
 
     componentDidMount(){
-        axios.get('/admin/deviceList').then( response => {
+        axios.get('/api/admin/deviceList').then( response => {
             let { data } = response;
             this.setState({
                 ...this.state,
@@ -44,7 +44,7 @@ class AdminDevice extends Component{
     _submitNewDevice(e){
         e.preventDefault();
         console.log(this.state.deviceForm);
-        axios.post('/admin/signDevice', this.state.deviceForm, { withCredentials: true })
+        axios.post('/api/admin/signDevice', this.state.deviceForm, { withCredentials: true })
             .then( response => {
                 let { data } = response,
                     { deviceList } = this.state;
