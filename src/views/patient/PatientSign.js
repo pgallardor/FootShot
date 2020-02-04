@@ -14,7 +14,9 @@ class PatientSign extends Component {
             rut: '',
             fullName: '',
             birthDate: new Date(),
-            gender: 'male'
+            gender: 'male',
+            healthCenter: -1,
+            healthCenterList: []
         }
 
         this.signPatient = this.signPatient.bind(this);
@@ -23,9 +25,21 @@ class PatientSign extends Component {
 
     }
 
+    componentDidMount(){
+        axios.get('/Organization/all')
+            .then( response => {
+                let { data } = response;
+                this.setState({
+                    ...this.state,
+                    healthCenterList: data
+                })
+            })
+    }
+
     signPatient(){
         //axios POST
-        let form = this.state;
+        let { rut, fullName, birthDate, gender, healthCenter } = this.state
+        let form = { rut, fullName, birthDate, gender, healthCenter };
         
         axios.post('/Patient/signWithRut', form)
             .then( response => {
@@ -71,6 +85,20 @@ class PatientSign extends Component {
         this.setState({
             birthDate: date
         });
+    }
+
+    _centerList(){
+        let list = [<option value="-1">Seleccione centro salud...</option>]
+        for (let center of this.state.healthCenterList){
+            list = [...list, 
+                <option value={center.id}>{center.name}</option>
+            ]
+        }
+        return (
+            <Form.Control as="select" id="healthCenter" onChange={this._handleChange}>
+                {list}
+            </Form.Control>
+        )
     }
 
     render(){
@@ -119,6 +147,10 @@ class PatientSign extends Component {
                                     <option value="other">Otro</option>
                                     <option value="unknown">No menciona/Se desconoce</option>
                                 </Form.Control>
+                            </Form.Group>
+                            <Form.Group as={Col}>
+                                <Form.Label>Centro salud</Form.Label>
+                                { this._centerList() }
                             </Form.Group>
                         </Form.Row>
                         <Button variant="success" onClick={this.signPatient}> Inscribir </Button>

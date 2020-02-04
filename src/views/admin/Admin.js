@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Tabs, Tab } from 'react-bootstrap';
+import { withRouter } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import '../style.css';
 import '../newstyles.css';
@@ -21,7 +22,10 @@ class Admin extends Component{
 
     componentDidMount(){
         //redirect if not admin
-        axios.get('/admin/organizationList').then( response => {
+        if (this.props.user.role.length == 1 || this.props.user.role[1] !== 'admin') {
+            this.props.history.push("/");
+        }
+        axios.get('/Organization/all').then( response => {
             let { data } = response;
 
             this.setState({
@@ -64,4 +68,4 @@ class Admin extends Component{
     }
 }
 
-export default Admin;
+export default withRouter(Admin);

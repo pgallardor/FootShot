@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import './style.css';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
-import { thisTypeAnnotation } from '@babel/types';
 
 class Navbar extends Component{
     constructor(props){
         super(props);
 
         this.logout = this.logout.bind(this);
+    }
+
+    toAdmin(){
+        this.props.history.push('/admin');
     }
 
     logout(){
@@ -44,7 +47,10 @@ class Navbar extends Component{
                                     {this.props.user.username}
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Editar usuario</a>
+                                    {
+                                        this.props.user.role[1] === 'admin' &&
+                                        <a class="dropdown-item" href={null} onClick={this.toAdmin}>Panel administrador</a>
+                                    }
                                     <a class="dropdown-item" href="javascript:void(null)" onClick={this.logout}>Cerrar sesión</a>
                                 </div>
                             </div>

@@ -22,10 +22,10 @@ class Observation extends Component{
     componentDidMount(){
         let oid = this.props.match.params.oid;
         axios.get('/Observation/' + oid).then( response => {
-            let { oid, urls, device, interpretation, issued, note } = response.data;
+            let { oid, urls, deviceType, interpretation, issued, note, mac, name } = response.data;
             this.setState({
                 urls, oid,
-                device, interpretation, issued, note
+                deviceType, interpretation, issued, note, mac, name
             })
         })
     }
@@ -43,7 +43,7 @@ class Observation extends Component{
                 </Helmet>
                 <div class="container titulo-home pt-5 pb-4 contenido">
                 {
-                    this.state.device === 'Footshot' ?
+                    (this.state.deviceType === 'Footshot Clinical' || this.state.deviceType === 'Footshot Home') ?
                     <FootObservation {...this.state} /> :
                     <CardObservation {...this.state} />
                 }

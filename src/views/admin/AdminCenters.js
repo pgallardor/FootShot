@@ -89,6 +89,7 @@ class AdminCenters extends Component{
                             <option value="Hospital">Hospital</option>
                             <option value="CESFAM">CESFAM</option>
                             <option value="Clínica">Clínica</option>
+                            <option value="Particular">Particular</option>
                         </Form.Control>
                     </Col>
                     <Button type="submit" variant="success">Inscribir centro</Button>

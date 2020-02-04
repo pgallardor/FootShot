@@ -5,6 +5,7 @@ import AdminCenterModal from './AdminCenterModal';
 import axios from 'axios';
 
 class AdminUsers extends Component{
+
     constructor(props){
         super(props);
         this.state = {
@@ -38,6 +39,13 @@ class AdminUsers extends Component{
             ...this.state,
             userForm
         })
+    }
+
+    _makeAdmin(username){
+        axios.put('/admin/makeAdmin/' + username)
+            .then(() => {
+                alert(username + " is now an admin!")
+            })
     }
 
     _submitNewUser(e){
@@ -77,7 +85,7 @@ class AdminUsers extends Component{
                         <td colSpan="3">
                             <ButtonToolbar>
                                 <Button size="sm" variant="outline-info" onClick={() => { this._openModal(user.username) }}>Ver servicios salud</Button>
-                                <Button size="sm" variant="outline-danger" disabled={user.role === 'admin'}>Hacer admin</Button>
+                                <Button size="sm" variant="outline-danger" disabled={user.role === 'admin'} onClick={() => this._makeAdmin(user.username)}>Hacer admin</Button>
                                 <Button size="sm" variant="danger">Eliminar cuenta</Button>
                             </ButtonToolbar>
                         </td>

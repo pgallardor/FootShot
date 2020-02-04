@@ -32,8 +32,8 @@ class App extends Component {
 
   //front-end login
   login(userInfo){
-    let { username } = userInfo;
-    let user = { role: ['guest', 'user'], username };
+    let { username, role } = userInfo;
+    let user = { role: ['guest', role], username };
 
     this.setState({ user });
   }
@@ -63,7 +63,7 @@ class App extends Component {
           <Switch>
               <PrivateRoute exact path="/" component={Home}/>
               <Route path="/login" component={ props => <Login {...props} login={this.login} user={this.state.user}/> }/> 
-              <Route path="/admin" component={Admin} />
+              <Route path="/admin" component={ props => <Admin user={this.state.user}/> } />
               <PrivateRoute path="/patient/:id" component={Patient}/>
               <PrivateRoute path="/sign-patient" component={PatientSign} />
               <PrivateRoute path="/observation/:oid" component={Observation} />

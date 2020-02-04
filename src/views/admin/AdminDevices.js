@@ -9,7 +9,7 @@ class AdminDevice extends Component{
         this.state = {
             deviceList: [],
             deviceForm: {
-                deviceType: "Footshot",
+                deviceType: "Footshot Clinical",
                 mac: "",
                 belongsTo: -1
             }
@@ -116,7 +116,8 @@ class AdminDevice extends Component{
                 <Row>
                     <Col>
                         <Form.Control as="select" id="deviceType" onChange={this._handleForm}>
-                            <option value="Footshot">Footshot</option>
+                            <option value="Footshot Clinical">Footshot Clinical</option>
+                            <option value="Footshot Home">Footshot Home</option>
                             <option value="Cardialys">Cardialys</option>
                         </Form.Control>
                     </Col>

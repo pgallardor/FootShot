@@ -34,7 +34,7 @@ class FootObservation extends Component{
                 <ButtonMenu buttons={["Visible", "Infrarrojo", "Análisis"]} change={this.changeDisplay} />
                 <div class="row container centered images">
                     <div class="left-image">
-                        <img src={ this.props.urls[this.state.offset + 0] } alt=""/>
+                        <img src={ this.props.urls[this.state.offset] } alt=""/>
                     </div>
                     <div class="right-image">
                         <img src={ this.props.urls[this.state.offset + 1] } alt=""/>
@@ -45,6 +45,8 @@ class FootObservation extends Component{
                         <h3>Datos del exámen</h3>
                         <p>Interpretación: {this.props.interpretation}</p>
                         <p>Realizado el: {this.props.issued}</p>
+                        <p>Lugar: {this.props.name}</p>
+                        <p>Datos del dispositivo: {this.props.deviceType + ' (' + this.props.mac + ')'}</p>
                         <p><em>{this.props.note}</em></p>
                     </div>
                 </div>

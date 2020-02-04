@@ -112,7 +112,7 @@ class Patient extends Component{
                                         Observaciones
                                     </a>
                                     { this.state.obsButton !== "" &&
-                                        <PatientObs/>
+                                        <PatientObs obsList={this.state.patient.observation}/>
                                     }
                                 </li>
                             </ul>
