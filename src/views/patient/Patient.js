@@ -61,7 +61,7 @@ class Patient extends Component{
     }
 
     _modalSubmit(field, body){
-        let pid = this.props.match.params.id, url = `/${field}/${pid}`;
+        let pid = this.props.match.params.id, url = `/api/${field}/${pid}`;
         axios.put(url, body).then( response => {
             console.log(response.data);
         })
